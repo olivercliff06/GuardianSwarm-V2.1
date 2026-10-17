@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Guardian Swarm",
+  "version": "2.1.0",
+  "description": "Independent live and historical liquidity-risk investigation for BNB Smart Chain.",
+  "permissions": ["sidePanel", "storage", "activeTab"],
+  "host_permissions": ["http://127.0.0.1:8787/*", "https://pancakeswap.finance/*"],
+  "background": { "service_worker": "assets/background.js", "type": "module" },
+  "side_panel": { "default_path": "index.html" },
+  "action": { "default_title": "Open Guardian Swarm" },
+  "content_scripts": [{ "matches": ["https://pancakeswap.finance/*"], "js": ["assets/content.js"], "run_at": "document_idle" }],
+  "content_security_policy": { "extension_pages": "script-src 'self'; object-src 'self'" }
+}

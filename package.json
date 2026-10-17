@@ -1,0 +1,21 @@
+{
+  "name": "guardian-swarm",
+  "private": true,
+  "version": "2.1.0",
+  "scripts": {
+    "build": "npm run build:shared && npm run build:backend && npm run build:extension",
+    "build:shared": "tsc -p shared/tsconfig.json",
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "build:extension": "vite build --config extension/vite.config.ts",
+    "dev": "tsx watch backend/src/server.ts",
+    "test": "vitest run backend/tests",
+    "start": "node backend/dist/server.js"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@fastify/cors": "^10.0.2", "fastify": "^5.2.1", "lucide-react": "^0.468.0", "react": "^18.3.1", "react-dom": "^18.3.1", "viem": "^2.23.5", "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3", "@types/chrome": "^0.0.287", "@types/node": "^22.10.7", "@types/react": "^18.3.18", "@types/react-dom": "^18.3.5", "@vitejs/plugin-react": "^4.3.4", "autoprefixer": "^10.4.20", "postcss": "^8.5.1", "tailwindcss": "^4.3.3", "tsx": "^4.19.2", "typescript": "^5.7.3", "vite": "^6.0.7", "vitest": "^5.0.5"
+  }
+}

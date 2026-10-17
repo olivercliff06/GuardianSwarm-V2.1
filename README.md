@@ -139,4 +139,3 @@ docs/       Architecture and integration truth
 - In-memory investigation history resets with the backend process. Production should use SQLite or Postgres.
 - Deterministic agent policies prove orchestration and evidence boundaries, not autonomous LLM reasoning.
 - The current build does not claim BNB Agent Studio deployment or ERC-8004 registration.
-

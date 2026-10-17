@@ -1,0 +1,9 @@
+export type Risk='LOW'|'MEDIUM'|'HIGH'|'INSUFFICIENT_EVIDENCE';
+export interface Evidence{id:string;source:string;summary:string;verificationStatus:'VERIFIED'|'UNVERIFIED'|'REJECTED';blockNumber?:string;transactionHash?:string;url?:string}
+export interface Assessment{agent:string;runtime:'backend-local'|'studio-local'|'studio-deployed'|'fixture';verdict:Risk;confidence:number;reasoning:string;evidence:Evidence[];steps:string[];latencyMs:number;estimatedCostUsd:number}
+export type DataProvenance='FIXTURE'|'LIVE_RPC'|'HISTORICAL_RPC'|'CACHED_HISTORICAL';
+export interface ChainWindow{fromBlock:string;toBlock:string;transactionHash?:string;eventCounts:{mint:number|null;burn:number|null;swap:number|null;sync:number|null};sourceUrl?:string}
+export interface InvestigationReport{investigationId:string;mode:'demo'|'live'|'historical';scenarioId?:string;network:string;poolAddress:string;tokenPair:string;startedAt:string;completedAt:string;anomaly:{type:string;changePercent:number|null;windowMinutes:number|null};baseline:Assessment;security:Assessment;verification:Assessment;arbitration?:Assessment;finalRisk:Risk;recommendation:string;disagreement:boolean;inputEvidenceHash:string;dataProvenance:DataProvenance;chainWindow?:ChainWindow;metrics:{evidenceVerificationRate:number;latencyMs:number;estimatedCostUsd:number};limitations:string[]}
+export type InvestigationStatus='queued'|'liquidity'|'baseline'|'security'|'verification'|'arbitration'|'completed'|'failed';
+export interface InvestigationState{id:string;status:InvestigationStatus;progress:number;message:string;report?:InvestigationReport;error?:string}
+export interface HealthStatus{ok:boolean;network:string;runtime:string;agentStudio:{available:boolean;status:string;endpoint?:string;agentName?:string;skills?:string[];identity:string|null;error?:string}}
