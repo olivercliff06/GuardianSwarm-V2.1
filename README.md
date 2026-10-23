@@ -123,15 +123,6 @@ The orchestrator constructs the Verification input from a structured clone of th
 - CORS is limited to extension origins and configured local development origins.
 - Never commit `.env`, API keys, RPC secrets, or private keys.
 
-## Repository layout
-
-```text
-extension/  React + TypeScript + Vite + Tailwind side panel
-backend/    Fastify API, BSC reads, orchestration, benchmark and tests
-shared/     Zod schemas and shared TypeScript contracts
-docs/       Architecture and integration truth
-```
-
 ## Known MVP limitations
 
 - Public RPC providers may rate-limit recent logs or prune old history. Configure an archive-capable `BSC_RPC_URL` for authoritative historical RPC provenance.
